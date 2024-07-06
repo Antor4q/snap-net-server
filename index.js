@@ -30,7 +30,10 @@ async function run() {
 
     app.post("/users", async(req,res) => {
         const userInfo = req.body
-        console.log(userInfo)
+
+       
+        const result = await usersCollection.insertOne(userInfo)
+        res.send(result)
     })
 
 
